@@ -11,11 +11,11 @@ export type tSymbol = {
 }
 
 export type Node = {
-    id?: number,
-    children: Node[],
-    name: string,
-    value?: string
-}
+    id?: number;
+    children: Node[];
+    name: string;
+    value?: string;
+};
 
 function processSymbols(symbols: tSymbol[] | undefined) {
     const map = new Map<string, Node>();

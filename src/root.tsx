@@ -1,6 +1,9 @@
 import D3Container from "./components/d3-container/d3-container";
 import { createGraph } from "./utils/utils";
 import { $ } from "@builder.io/qwik";
+import BubblePlot from "./components/bubble-plot/bubble-plot";
+
+import styles from './styles.module.css';
 
 export default () => {
     const list = [
@@ -95,6 +98,14 @@ export default () => {
             deltaInteraction: false
         },
     ];
+    const bubbleArr = [
+        { country: "Afghanistan", continent: "Asia", lifeExp: 43.828, pop: 31889923, gdpPercap: 974.5803384 },
+        { country: "Albania",continent: "Europe", lifeExp:76.423, pop: 3600523, gdpPercap: 5937.029526 },
+        { country: "Cambodia", continent: "Asia", lifeExp: 59.723, pop: 14131858, gdpPercap: 1713.778686 },
+        { country: "China", continent: "Asia", lifeExp: 72.961, pop: 1318683096, gdpPercap: 4959.114854 },
+        { country: "Pakistan", continent: "Asia", lifeExp: 65.483, pop: 169270617, gdpPercap: 2605.94758 },
+        { country: "United States", continent: "Americas", lifeExp: 78.242, pop: 301139947, gdpPercap: 42951.65309 }
+    ];
     const handleCreation = $(createGraph);
     return (
         <>
@@ -103,7 +114,20 @@ export default () => {
             <title>D3 Integration Demo</title>
           </head>
           <body>
-            <D3Container data={list} create={handleCreation} />
+            <section class={styles.main}>
+                <D3Container data={list} create={handleCreation} options={{}} />
+                <BubblePlot data={bubbleArr} options={{
+                    xAxisDomain: 10000,
+                    yAxisDomain: 90,
+                    zAxisDomain: 1310000000,
+                    cx: 'gdpPercap',
+                    cy: 'lifeExp',
+                    r: 'pop',
+                    fill: '#69b3a2',
+                    opacity: 0.7,
+                    stroke: 'black'
+                }} />
+            </section>
           </body>
         </>
     );
