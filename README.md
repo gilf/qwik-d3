@@ -18,6 +18,7 @@ The library exposes a component named D3Container.
 The component expects two props:
 - data - the data that should be used inside the graph. 
 - create - a QRL function that will be responsible to create the d3 visualization inside the container.
+- options - a Record<string, string> that is used to pass configurations to the create function
 
 For example inside your qwik component you have a list and a createGraph QRL:
 
@@ -25,6 +26,6 @@ For example inside your qwik component you have a list and a createGraph QRL:
 const list = [...];
 const handleCreation = $(createGraph);
 return (
-    <D3Container data={list} create={handleCreation} />
+    <D3Container data={list} create={handleCreation} options={{ fill: 'black' }} />
 );
 ```
