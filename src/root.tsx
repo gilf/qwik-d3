@@ -2,10 +2,9 @@ import D3Container from "./components/d3-container/d3-container";
 import { createGraph } from "./utils/utils";
 import { $ } from "@builder.io/qwik";
 import BubblePlot from "./components/bubble-plot/bubble-plot";
+import Histogram from "./components/histogram/histogram";
 
 import styles from './styles.module.css';
-import Histogram from "./components/histogram/histogram";
-import {histogram} from "d3";
 
 export default () => {
     const list = [
