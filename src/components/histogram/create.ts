@@ -33,7 +33,7 @@ export function createHistogram(
         .call(d3.axisBottom(x));
 
     // set the parameters for the histogram
-    const histogram = d3.histogram()
+    const histogram = d3.bin()
         .value((d) => { return d[options.column]; })   // I need to give the vector of value
         .domain(x.domain())  // then the domain of the graphic
         .thresholds(x.ticks(options.thresholds)); // then the numbers of bins
@@ -44,7 +44,7 @@ export function createHistogram(
     // Add Y axis
     const y = d3.scaleLinear()
         .range([ histogramHeight, 0])
-    y.domain([0, d3.max(bins, (d) => { return d.length; })]);   // d3.hist has to be called before the Y axis obviously
+    y.domain([0, d3.max(bins, (d) => { return d?.length; })]);   // d3.hist has to be called before the Y axis obviously
     svg.append("g")
         .call(d3.axisLeft(y));
 
@@ -54,9 +54,9 @@ export function createHistogram(
         .enter()
         .append("rect")
         .attr("x", 1)
-        .attr("transform", (d) => { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
-        .attr("width", (d) => { return x(d.x1) - x(d.x0) -1 ; })
-        .attr("height", (d) => { return histogramHeight - y(d.length); })
+        .attr("transform", (d) => { return "translate(" + x(d.x0) + "," + y(d?.length) + ")"; })
+        .attr("width", (d) => { return x(d?.x1) - x(d?.x0) -1 ; })
+        .attr("height", (d) => { return histogramHeight - y(d?.length); })
         .style("fill", options.fill)
 
     return {
