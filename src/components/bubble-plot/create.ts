@@ -23,13 +23,13 @@ export function createBubblePlot(
         .attr("height",height)
         .append("g")
         .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
+            `translate(${margin.left},${margin.top})`);
 
     const x = d3.scaleLinear()
         .domain(options.xAxisDomain)
         .range([ 0, plotWidth ]);
     svg.append("g")
-        .attr("transform", "translate(0," + plotHeight + ")")
+        .attr("transform", `translate(0,${plotHeight})`)
         .call(d3.axisBottom(x));
 
     // Add Y axis

@@ -23,13 +23,13 @@ export function createHistogram(
         .attr("height",height)
         .append("g")
         .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
+            `translate(${margin.left},${margin.top})`);
 
     const x = d3.scaleLinear()
         .domain(options.xAxisDomain)
         .range([ 0, histogramWidth ]);
     svg.append("g")
-        .attr("transform", "translate(0," + histogramHeight + ")")
+        .attr("transform", `translate(0, ${histogramHeight})`)
         .call(d3.axisBottom(x));
 
     // set the parameters for the histogram
@@ -54,7 +54,7 @@ export function createHistogram(
         .enter()
         .append("rect")
         .attr("x", 1)
-        .attr("transform", (d) => { return "translate(" + x(d.x0) + "," + y(d?.length) + ")"; })
+        .attr("transform", (d) => { return `translate(${x(d.x0)},${y(d?.length)})`; })
         .attr("width", (d) => { return x(d?.x1) - x(d?.x0) -1 ; })
         .attr("height", (d) => { return histogramHeight - y(d?.length); })
         .style("fill", options.fill)
