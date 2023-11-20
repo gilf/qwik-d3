@@ -4,8 +4,7 @@ import { createHistogram } from "./create";
 
 export type HistogramProps = {
     data: any[];
-    xAxisDomain: number;
-    yAxisDomain: number;
+    xAxisDomain: number[];
     fill?: string,
     thresholds: number;
     column: string;
@@ -13,13 +12,11 @@ export type HistogramProps = {
 
 export default component$(({ data,
                                xAxisDomain,
-                               yAxisDomain,
                                fill,
                                thresholds,
                                column }: HistogramProps) => {
     const options = {
         xAxisDomain,
-        yAxisDomain,
         fill,
         thresholds,
         column

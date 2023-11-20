@@ -26,7 +26,7 @@ export function createBubblePlot(
             "translate(" + margin.left + "," + margin.top + ")");
 
     const x = d3.scaleLinear()
-        .domain([0, options.xAxisDomain])
+        .domain(options.xAxisDomain)
         .range([ 0, plotWidth ]);
     svg.append("g")
         .attr("transform", "translate(0," + plotHeight + ")")
@@ -34,14 +34,14 @@ export function createBubblePlot(
 
     // Add Y axis
     const y = d3.scaleLinear()
-        .domain([0, options.yAxisDomain])
+        .domain(options.yAxisDomain)
         .range([ plotHeight, 0]);
     svg.append("g")
         .call(d3.axisLeft(y));
 
     // Add a scale for bubble size
     const z = d3.scaleLinear()
-        .domain([0, options.zAxisDomain])
+        .domain(options.zAxisDomain)
         .range([ 1, 40]);
 
     // Add dots

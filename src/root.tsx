@@ -128,9 +128,9 @@ export default () => {
           <body>
             <section class={styles.main}>
                 <D3Container data={list} create={handleCreation} options={{}} />
-                <BubblePlot data={bubbleArr} xAxisDomain={10000} yAxisDomain={90} zAxisDomain={1310000000}
+                <BubblePlot data={bubbleArr} xAxisDomain={[0, 10000]} yAxisDomain={[0, 90]} zAxisDomain={[0, 1310000000]}
                             cx="gdpPercap" cy="lifeExp" r="pop" fill="#69b3a2" stroke="black" opacity={0.7} />
-                <Histogram data={histogramData} column="price" xAxisDomain={150} yAxisDomain={50} fill="#69b3a2" thresholds={70} />
+                <Histogram data={histogramData} column="price" xAxisDomain={[0, 150]} fill="#69b3a2" thresholds={70} />
             </section>
           </body>
         </>

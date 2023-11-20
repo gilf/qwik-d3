@@ -4,9 +4,9 @@ import { createBubblePlot } from "./create";
 
 export type BubblePlotProps = {
     data: any[];
-    xAxisDomain: number;
-    yAxisDomain: number;
-    zAxisDomain: number;
+    xAxisDomain: number[];
+    yAxisDomain: number[];
+    zAxisDomain: number[];
     cx: string;
     cy: string;
     r: string;

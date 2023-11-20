@@ -26,7 +26,7 @@ export function createHistogram(
             "translate(" + margin.left + "," + margin.top + ")");
 
     const x = d3.scaleLinear()
-        .domain([0, options.xAxisDomain])
+        .domain(options.xAxisDomain)
         .range([ 0, histogramWidth ]);
     svg.append("g")
         .attr("transform", "translate(0," + histogramHeight + ")")
