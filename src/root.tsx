@@ -4,6 +4,8 @@ import { $ } from "@builder.io/qwik";
 import BubblePlot from "./components/bubble-plot/bubble-plot";
 
 import styles from './styles.module.css';
+import Histogram from "./components/histogram/histogram";
+import {histogram} from "d3";
 
 export default () => {
     const list = [
@@ -106,6 +108,16 @@ export default () => {
         { country: "Pakistan", continent: "Asia", lifeExp: 65.483, pop: 169270617, gdpPercap: 2605.94758 },
         { country: "United States", continent: "Americas", lifeExp: 78.242, pop: 301139947, gdpPercap: 42951.65309 }
     ];
+    const histogramData = [
+        { price: 100 },
+        { price: 70 },
+        { price: 70 },
+        { price: 70 },
+        { price: 100 },
+        { price: 70 },
+        { price: 15 },
+        { price: 69 },
+    ];
     const handleCreation = $(createGraph);
     return (
         <>
@@ -118,6 +130,7 @@ export default () => {
                 <D3Container data={list} create={handleCreation} options={{}} />
                 <BubblePlot data={bubbleArr} xAxisDomain={10000} yAxisDomain={90} zAxisDomain={1310000000}
                             cx="gdpPercap" cy="lifeExp" r="pop" fill="#69b3a2" stroke="black" opacity={0.7} />
+                <Histogram data={histogramData} column="price" xAxisDomain={150} yAxisDomain={50} fill="#69b3a2" thresholds={70} />
             </section>
           </body>
         </>
