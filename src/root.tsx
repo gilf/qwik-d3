@@ -116,17 +116,8 @@ export default () => {
           <body>
             <section class={styles.main}>
                 <D3Container data={list} create={handleCreation} options={{}} />
-                <BubblePlot data={bubbleArr} options={{
-                    xAxisDomain: 10000,
-                    yAxisDomain: 90,
-                    zAxisDomain: 1310000000,
-                    cx: 'gdpPercap',
-                    cy: 'lifeExp',
-                    r: 'pop',
-                    fill: '#69b3a2',
-                    opacity: 0.7,
-                    stroke: 'black'
-                }} />
+                <BubblePlot data={bubbleArr} xAxisDomain={10000} yAxisDomain={90} zAxisDomain={1310000000}
+                            cx="gdpPercap" cy="lifeExp" r="pop" fill="#69b3a2" stroke="black" opacity={0.7} />
             </section>
           </body>
         </>

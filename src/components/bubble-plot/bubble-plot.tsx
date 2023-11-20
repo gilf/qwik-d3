@@ -4,10 +4,38 @@ import { createBubblePlot } from "./create";
 
 export type BubblePlotProps = {
     data: any[];
-    options: Record<string, any>,
+    xAxisDomain: number;
+    yAxisDomain: number;
+    zAxisDomain: number;
+    cx: string;
+    cy: string;
+    r: string;
+    fill?: string,
+    stroke?: string,
+    opacity?: number;
 }
 
-export default component$(({ data, options }: BubblePlotProps) => {
+export default component$(({ data,
+                               xAxisDomain,
+                               yAxisDomain,
+                               zAxisDomain,
+                               cx,
+                               cy,
+                               r,
+                               fill,
+                               stroke,
+                               opacity }: BubblePlotProps) => {
+    const options = {
+        xAxisDomain,
+        yAxisDomain,
+        zAxisDomain,
+        cx,
+        cy,
+        r,
+        fill,
+        stroke,
+        opacity
+    };
     const handleCreation = $(createBubblePlot);
     return (
         <D3Container data={data} create={handleCreation} options={options} />
