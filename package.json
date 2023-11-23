@@ -1,6 +1,6 @@
 {
   "name": "qwik-d3",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "A small Qwik library for fast start with D3 library",
   "author": "Gil Fink",
   "license": "MIT",

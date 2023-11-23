@@ -7,7 +7,7 @@ export function createBubblePlot(
 ) {
     if (!elm || !data || !Array.isArray(data)) {
         return {
-            destroy: () => {}
+            unmount: () => {}
         };
     }
 
@@ -58,7 +58,7 @@ export function createBubblePlot(
         .attr("stroke", options.stroke)
 
     return {
-        destroy: () => {
+        unmount: () => {
             svg.remove();
         },
         node: svg.node()

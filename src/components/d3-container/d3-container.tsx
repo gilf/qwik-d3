@@ -3,7 +3,7 @@ import styles from "./d3-container.css?inline";
 
 export type D3ContainerProps = {
     data: any[] | Record<string, any>;
-    create: QRL<(elm: HTMLDivElement | undefined, data: any[] | undefined | Object, options: Record<string, any>) => { destroy: () => void; node?: undefined; } | { destroy: () => void; node: SVGGElement | null; }>;
+    create: QRL<(elm: HTMLDivElement | undefined, data: any[] | undefined | Object, options: Record<string, any>) => { unmount: () => void; node?: undefined; } | { unmount: () => void; node: SVGGElement | null; }>;
     options: Record<string, any>;
 }
 
@@ -12,8 +12,8 @@ export default component$(({ data, create, options }: D3ContainerProps) => {
     const containerRef = useSignal<HTMLDivElement>();
 
     useVisibleTask$(async ({ cleanup }) => {
-        const { destroy } = await create(containerRef.value, data, options);
-        cleanup(() => destroy());
+        const { unmount } = await create(containerRef.value, data, options);
+        cleanup(() => unmount());
     });
 
     return (

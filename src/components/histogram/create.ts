@@ -7,7 +7,7 @@ export function createHistogram(
 ) {
     if (!elm || !data || !Array.isArray(data)) {
         return {
-            destroy: () => {}
+            unmount: () => {}
         };
     }
 
@@ -60,7 +60,7 @@ export function createHistogram(
         .style("fill", options.fill)
 
     return {
-        destroy: () => {
+        unmount: () => {
             svg.remove();
         },
         node: svg.node()

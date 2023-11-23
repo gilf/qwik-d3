@@ -57,7 +57,7 @@ export function createGraph(
 ) {
     if (!elm || !Array.isArray(data)) {
         return {
-            destroy: () => {}
+            unmount: () => {}
         };
     }
     const processedData = processSymbols(data);
@@ -129,7 +129,7 @@ export function createGraph(
         .attr("stroke", "white");
 
     return {
-        destroy: () => {
+        unmount: () => {
             console.log('clean up!');
         },
         node: svg.node()

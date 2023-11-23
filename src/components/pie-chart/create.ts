@@ -7,7 +7,7 @@ export function createPieChart(
 ) {
     if (!elm || !data) {
         return {
-            destroy: () => {}
+            unmount: () => {}
         };
     }
 
@@ -57,7 +57,7 @@ export function createPieChart(
     }
 
     return {
-        destroy: () => {
+        unmount: () => {
             svg.remove();
         },
         node: svg.node()
