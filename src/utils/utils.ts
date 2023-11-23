@@ -53,9 +53,9 @@ function processSymbols(symbols: tSymbol[] | undefined) {
 
 export function createGraph(
     elm: HTMLDivElement | undefined,
-    data: tSymbol[] | undefined,
+    data: tSymbol[] | undefined | Record<string, any>,
 ) {
-    if (!elm) {
+    if (!elm || !Array.isArray(data)) {
         return {
             destroy: () => {}
         };

@@ -5,6 +5,7 @@ import D3Container from "./components/d3-container/d3-container";
 import { createGraph } from "./utils/utils";
 
 import styles from './styles.module.css';
+import PieChart from "./components/pie-chart/pie-chart";
 
 export default () => {
     const list = [
@@ -130,6 +131,7 @@ export default () => {
                 <BubblePlot data={bubbleArr} xAxisDomain={[0, 10000]} yAxisDomain={[0, 90]} zAxisDomain={[0, 1310000000]}
                             cx="gdpPercap" cy="lifeExp" r="pop" fill="#69b3a2" stroke="black" opacity={0.7} />
                 <Histogram data={histogramData} column="price" xAxisDomain={[0, 150]} fill="#69b3a2" thresholds={70} />
+                <PieChart data={{a: 9, b: 20, c:30, d:8, e:12}} withLabels stroke="black" opacity={0.7} />
             </section>
           </body>
         </>

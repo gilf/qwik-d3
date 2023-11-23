@@ -2,10 +2,10 @@ import * as d3 from "d3";
 
 export function createHistogram(
     elm: HTMLDivElement | undefined,
-    data: any[] | undefined,
+    data: any[] | undefined | Record<string, any>,
     options: Record<string, any>,
 ) {
-    if (!elm || !data) {
+    if (!elm || !data || !Array.isArray(data)) {
         return {
             destroy: () => {}
         };
