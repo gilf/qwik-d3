@@ -5,15 +5,17 @@ import { createPieChart } from "./create";
 export type PieChartProps = {
     data: Object;
     withLabels?: boolean;
+    withTooltip?: boolean;
     stroke?: string;
     opacity?: number;
 }
 
-export default component$(({ data, withLabels, stroke, opacity }: PieChartProps) => {
+export default component$(({ data, withLabels, stroke, opacity, withTooltip }: PieChartProps) => {
     const options = {
         stroke,
         opacity,
-        withLabels
+        withLabels,
+        withTooltip
     };
     const handleCreation = $(createPieChart);
     return (

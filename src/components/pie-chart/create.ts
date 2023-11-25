@@ -1,4 +1,5 @@
 import * as d3 from "d3";
+import {generateTooltip, removeTooltip} from "../../utils/tooltip-generator";
 
 export function createPieChart(
     elm: HTMLDivElement | undefined,
@@ -34,7 +35,7 @@ export function createPieChart(
         .outerRadius(radius);
 
     // Build the pie chart
-    svg
+    const pieSlices = svg
         .selectAll('slices')
         .data(dataReady)
         .join('path')
@@ -46,7 +47,7 @@ export function createPieChart(
 
     // Add the annotation
     if (options.withLabels) {
-        svg
+         svg
             .selectAll('slices')
             .data(dataReady)
             .join('text')
@@ -54,6 +55,17 @@ export function createPieChart(
             .attr("transform", (d) => { return `translate(${arcGenerator.centroid(d)})`;  })
             .style("text-anchor", "middle")
             .style("font-size", 16);
+    }
+
+    if (options.withTooltip) {
+        const { addTooltip, tooltipElm } = generateTooltip('pie-chart-tooltip', 'tooltip');
+        pieSlices.on("mouseover", (d, arc) => {
+            console.log(d)
+            addTooltip(arc.data[0], d.pageX, d.pageY);
+        })
+            .on("mouseout", () => {
+                removeTooltip(tooltipElm);
+            });
     }
 
     return {
