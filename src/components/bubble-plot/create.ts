@@ -45,7 +45,7 @@ export function createBubblePlot(
         .range([ 1, 40]);
 
     // Add dots
-    svg.append('g')
+    svg.append("g")
         .selectAll("dot")
         .data(data)
         .enter()

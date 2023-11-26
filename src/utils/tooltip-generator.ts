@@ -1,13 +1,13 @@
-import * as d3 from 'd3';
+import * as d3 from "d3";
 
 export const generateTooltip = (tooltipElmId: string, tooltipClassName: string) => {
     // Add the tooltip element to the graph if not exists
     const tooltip = document.querySelector(`#${tooltipElmId}`);
     if (!tooltip) {
-        const tooltipDiv = document.createElement('div');
+        const tooltipDiv = document.createElement("div");
         tooltipDiv.classList.add(tooltipClassName);
-        tooltipDiv.style.opacity = '0';
-        tooltipDiv.style.position = 'absolute';
+        tooltipDiv.style.opacity = "0";
+        tooltipDiv.style.position = "absolute";
         tooltipDiv.id = tooltipElmId;
         document.body.appendChild(tooltipDiv);
     }

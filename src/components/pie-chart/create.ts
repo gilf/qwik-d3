@@ -27,8 +27,8 @@ export function createPieChart(
         .range(d3.schemeSet2);
 
     const pie = d3.pie()
-        .value((d) => { return d[1]; });
-    const dataReady = pie(Object.entries(data));
+        .value((d: any) => { return d[1]; });
+    const dataReady = pie(Object.entries(data) as [string, any]);
 
     const arcGenerator = d3.arc()
         .innerRadius(0)
@@ -36,11 +36,11 @@ export function createPieChart(
 
     // Build the pie chart
     const pieSlices = svg
-        .selectAll('slices')
+        .selectAll("slices")
         .data(dataReady)
-        .join('path')
-        .attr('d', arcGenerator)
-        .attr('fill', (d) => { return(color(d.data[0])); })
+        .join("path")
+        .attr("d", arcGenerator as any)
+        .attr("fill", (d: any) => { return(color(d.data[0])) as string; })
         .attr("stroke", options.stroke)
         .style("stroke-width", "1px")
         .style("opacity", options.opacity)
@@ -48,19 +48,18 @@ export function createPieChart(
     // Add the annotation
     if (options.withLabels) {
          svg
-            .selectAll('slices')
+            .selectAll("slices")
             .data(dataReady)
-            .join('text')
-            .text((d) => { return d.data[0]; })
-            .attr("transform", (d) => { return `translate(${arcGenerator.centroid(d)})`;  })
+            .join("text")
+            .text((d: any) => { return d.data[0]; })
+            .attr("transform", (d: any) => { return `translate(${arcGenerator.centroid(d)})`;  })
             .style("text-anchor", "middle")
             .style("font-size", 16);
     }
 
     if (options.withTooltip) {
-        const { addTooltip, removeTooltip } = generateTooltip('pie-chart-tooltip', 'tooltip');
-        pieSlices.on("mouseover", (d, arc) => {
-            console.log(d)
+        const { addTooltip, removeTooltip } = generateTooltip("pie-chart-tooltip", "tooltip");
+        pieSlices.on("mouseover", (d, arc: any) => {
             addTooltip(arc.data[0], d.pageX, d.pageY);
         }).on("mouseout", () => {
                 removeTooltip();
