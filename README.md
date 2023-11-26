@@ -22,7 +22,7 @@ The component expects two props:
 
 For example inside your qwik component you have a list and a createGraph QRL:
 
-```
+```jsx
 const list = [...];
 const handleCreation = $(createGraph);
 return (
@@ -31,8 +31,63 @@ return (
 ```
 
 ## Other Exposed Components
-- BubblePlot - Pre-made bubble plot diagram with a few configuration options such as cx, cy and r for the size of the bubbles
-- Histogram - Pre-made histogram graph with options to set the thresholds and column in the single object
-- PieChart - Pre-made pie chart 
-- BarPlot - Pre-made bar plot
-- generateTooltip - A helper function that helps to add a tooltip without any style to a d3 generated visualization  
+### BubblePlot 
+Pre-made bubble plot diagram with a few configuration options such as cx, cy and r for the size of the bubbles.
+```jsx
+const bubbleArr = [
+    { country: "Afghanistan", continent: "Asia", lifeExp: 43.828, pop: 31889923, gdpPercap: 974.5803384 },
+    { country: "Albania",continent: "Europe", lifeExp:76.423, pop: 3600523, gdpPercap: 5937.029526 },
+    { country: "Cambodia", continent: "Asia", lifeExp: 59.723, pop: 14131858, gdpPercap: 1713.778686 },
+    { country: "China", continent: "Asia", lifeExp: 72.961, pop: 1318683096, gdpPercap: 4959.114854 },
+    { country: "Pakistan", continent: "Asia", lifeExp: 65.483, pop: 169270617, gdpPercap: 2605.94758 },
+    { country: "United States", continent: "Americas", lifeExp: 78.242, pop: 301139947, gdpPercap: 42951.65309 }
+];
+return (
+    <BubblePlot data={bubbleArr} xAxisDomain={[0, 10000]} yAxisDomain={[0, 90]} zAxisDomain={[0, 1310000000]}
+            cx="gdpPercap" cy="lifeExp" r="pop" fill="#69b3a2" stroke="black" opacity={0.7} />
+);
+```
+### Histogram
+Pre-made histogram graph with options to set the thresholds and column in the single object.
+```jsx
+const histogramData = [
+    { price: 100 },
+    { price: 70 },
+    { price: 70 },
+    { price: 70 },
+    { price: 100 },
+    { price: 70 },
+    { price: 15 },
+    { price: 69 },
+];
+return (
+    <Histogram data={histogramData} column="price" xAxisDomain={[0, 150]} fill="#69b3a2" thresholds={70} />
+);
+```
+### PieChart
+Pre-made pie chart. 
+```jsx
+return (<PieChart data={{a: 9, b: 20, c:30, d:8, e:12}} withLabels withTooltip stroke="black" opacity={0.7} />);
+```
+### BarPlot
+Pre-made bar plot.
+```jsx
+const barPlotData = [{ country: 'USA', value: 12394 }, { country: 'Russia', value: 6148 }, { country: 'UK', value: 1214 }];
+return (
+    <BarPlot data={barPlotData} yAxisDomain={[0, 13000]} fill="#69b3a2" xAxis="country" />
+);
+```
+### generateTooltip 
+A helper function that helps to add a tooltip without any style to a d3 generated visualization.
+
+In the next example pieSlices is the d3 generated pie slices in a pie chart: 
+```javascript
+if (options.withTooltip) {
+    const { addTooltip, removeTooltip } = generateTooltip("pie-chart-tooltip", "tooltip");
+    pieSlices.on("mouseover", (d, arc: any) => {
+        addTooltip(arc.data[0], d.pageX, d.pageY);
+    }).on("mouseout", () => {
+        removeTooltip();
+    });
+}
+```
