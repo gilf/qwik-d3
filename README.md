@@ -33,4 +33,5 @@ return (
 ## Other Exposed Components
 - BubblePlot - Pre-made bubble plot diagram with a few configuration options such as cx, cy and r for the size of the bubbles
 - Histogram - Pre-made histogram graph with options to set the thresholds and column in the single object
-- PieChart - Pre-made pie chart  
+- PieChart - Pre-made pie chart 
+- generateTooltip - A helper function that helps to add a tooltip without any style to a d3 generated visualization  
