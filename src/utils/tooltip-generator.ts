@@ -23,11 +23,13 @@ export const generateTooltip = (tooltipElmId: string, tooltipClassName: string) 
             .style("left", `${x}px`)
             .style("top", `${y - 28}px`);
     };
-    return { addTooltip, tooltipElm: div };
+
+    const removeTooltip = () => {
+        div
+            .transition()
+            .duration(200)
+            .style("opacity", 0);
+    };
+
+    return { addTooltip, removeTooltip, tooltipElm: div };
 }
-export const removeTooltip = (div:  d3.Selection<d3.BaseType, unknown, HTMLElement, any>) => {
-    div
-        .transition()
-        .duration(200)
-        .style("opacity", 0);
-};

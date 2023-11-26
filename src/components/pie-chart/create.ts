@@ -1,5 +1,5 @@
 import * as d3 from "d3";
-import {generateTooltip, removeTooltip} from "../../utils/tooltip-generator";
+import { generateTooltip } from "../../utils/tooltip-generator";
 
 export function createPieChart(
     elm: HTMLDivElement | undefined,
@@ -58,13 +58,12 @@ export function createPieChart(
     }
 
     if (options.withTooltip) {
-        const { addTooltip, tooltipElm } = generateTooltip('pie-chart-tooltip', 'tooltip');
+        const { addTooltip, removeTooltip } = generateTooltip('pie-chart-tooltip', 'tooltip');
         pieSlices.on("mouseover", (d, arc) => {
             console.log(d)
             addTooltip(arc.data[0], d.pageX, d.pageY);
-        })
-            .on("mouseout", () => {
-                removeTooltip(tooltipElm);
+        }).on("mouseout", () => {
+                removeTooltip();
             });
     }
 
