@@ -19,7 +19,7 @@ export const generateTooltip = (tooltipElmId: string, tooltipClassName: string) 
             .duration(200)
             .style("opacity", 0.9);
         div
-            .html(`<div>${d}</div>`)
+            .html(`<div class="tooltip-content">${d}</div>`)
             .style("left", `${x}px`)
             .style("top", `${y - 28}px`);
     };
