@@ -6,6 +6,7 @@ import { createGraph } from "./utils/utils";
 
 import styles from './styles.module.css';
 import PieChart from "./components/pie-chart/pie-chart";
+import BarPlot from "./components/bar-plot/bar-plot";
 
 export default () => {
     const list = [
@@ -118,6 +119,8 @@ export default () => {
         { price: 15 },
         { price: 69 },
     ];
+    const barPlotData = [{ country: 'USA', value: 12394 }, { country: 'Russia', value: 6148 }, { country: 'UK', value: 1214 }];
+
     const handleCreation = $(createGraph);
     return (
         <>
@@ -128,6 +131,7 @@ export default () => {
           <body>
             <section class={styles.main}>
                 <D3Container data={list} create={handleCreation} options={{}} />
+                <BarPlot data={barPlotData} yAxisDomain={[0, 13000]} fill="#69b3a2" xAxis="country"  />
                 <BubblePlot data={bubbleArr} xAxisDomain={[0, 10000]} yAxisDomain={[0, 90]} zAxisDomain={[0, 1310000000]}
                             cx="gdpPercap" cy="lifeExp" r="pop" fill="#69b3a2" stroke="black" opacity={0.7} />
                 <Histogram data={histogramData} column="price" xAxisDomain={[0, 150]} fill="#69b3a2" thresholds={70} />
