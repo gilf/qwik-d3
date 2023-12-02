@@ -23,10 +23,10 @@ The component expects two props:
 For example inside your qwik component you have a list and a createGraph QRL:
 
 ```jsx
-const list = [...];
+const data = [...];
 const handleCreation = $(createGraph);
 return (
-    <D3Container data={list} create={handleCreation} options={{ fill: 'black' }} />
+    <D3Container data={data} create={handleCreation} options={{ fill: 'black' }} />
 );
 ```
 
@@ -34,7 +34,7 @@ return (
 ### BubblePlot 
 Pre-made bubble plot diagram with a few configuration options such as cx, cy and r for the size of the bubbles.
 ```jsx
-const bubbleArr = [
+const bubbleData = [
     { country: "Afghanistan", continent: "Asia", lifeExp: 43.828, pop: 31889923, gdpPercap: 974.5803384 },
     { country: "Albania",continent: "Europe", lifeExp:76.423, pop: 3600523, gdpPercap: 5937.029526 },
     { country: "Cambodia", continent: "Asia", lifeExp: 59.723, pop: 14131858, gdpPercap: 1713.778686 },
@@ -43,7 +43,7 @@ const bubbleArr = [
     { country: "United States", continent: "Americas", lifeExp: 78.242, pop: 301139947, gdpPercap: 42951.65309 }
 ];
 return (
-    <BubblePlot data={bubbleArr} xAxisDomain={[0, 10000]} yAxisDomain={[0, 90]} zAxisDomain={[0, 1310000000]}
+    <BubblePlot data={bubbleData} xAxisDomain={[0, 10000]} yAxisDomain={[0, 90]} zAxisDomain={[0, 1310000000]}
             cx="gdpPercap" cy="lifeExp" r="pop" fill="#69b3a2" stroke="black" opacity={0.7} />
 );
 ```
@@ -67,7 +67,8 @@ return (
 ### PieChart
 Pre-made pie chart. 
 ```jsx
-return (<PieChart data={{a: 9, b: 20, c:30, d:8, e:12}} withLabels withTooltip stroke="black" opacity={0.7} />);
+const pieData = {a: 9, b: 20, c:30, d:8, e:12}; 
+return (<PieChart data={pieData} withLabels withTooltip stroke="black" opacity={0.7} />);
 ```
 ### BarPlot
 Pre-made bar plot.
