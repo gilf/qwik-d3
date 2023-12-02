@@ -78,6 +78,106 @@ return (
     <BarPlot data={barPlotData} yAxisDomain={[0, 13000]} fill="#69b3a2" xAxis="country" />
 );
 ```
+### Network
+Pre-made network diagram.
+```jsx
+const networkData = {
+    "nodes": [
+        {
+            "id": 1,
+            "name": "A"
+        },
+        {
+            "id": 2,
+            "name": "B"
+        },
+        {
+            "id": 3,
+            "name": "C"
+        },
+        {
+            "id": 4,
+            "name": "D"
+        },
+        {
+            "id": 5,
+            "name": "E"
+        },
+        {
+            "id": 6,
+            "name": "F"
+        },
+        {
+            "id": 7,
+            "name": "G"
+        },
+        {
+            "id": 8,
+            "name": "H"
+        },
+        {
+            "id": 9,
+            "name": "I"
+        },
+        {
+            "id": 10,
+            "name": "J"
+        }
+    ],
+    "links": [
+
+        {
+            "source": 1,
+            "target": 2
+        },
+        {
+            "source": 1,
+            "target": 5
+        },
+        {
+            "source": 1,
+            "target": 6
+        },
+
+        {
+            "source": 2,
+            "target": 3
+        },
+        {
+            "source": 2,
+            "target": 7
+        }
+        ,
+
+        {
+            "source": 3,
+            "target": 4
+        },
+        {
+            "source": 8,
+            "target": 3
+        }
+        ,
+        {
+            "source": 4,
+            "target": 5
+        }
+        ,
+
+        {
+            "source": 4,
+            "target": 9
+        },
+        {
+            "source": 5,
+            "target": 10
+        }
+    ]
+};
+return (
+    <Network data={networkData} linkStroke="#aaa" nodeFill="#69b3a2" nodeR={20} />
+);
+```
 ### generateTooltip 
 A helper function that helps to add a tooltip without any style to a d3 generated visualization.
 
