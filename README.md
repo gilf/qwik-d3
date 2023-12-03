@@ -178,6 +178,35 @@ return (
     <Network data={networkData} linkStroke="#aaa" nodeFill="#69b3a2" nodeR={20} />
 );
 ```
+### LineChart
+Pre-made line chart.
+```jsx
+const lineChartData = [{
+    date: '2013-04-28',
+    value: 135.98,
+}, {
+    date: '2013-04-29',
+    value: 147.49,
+}, {
+    date: '2013-04-30',
+    value: 146.93,
+}, {
+    date: '2013-05-01',
+    value: 139.89,
+}, {
+    date: '2013-05-02',
+    value: 143.89,
+}, {
+    date: '2013-05-03',
+    value: 167.12,
+}, {
+    date: '2013-05-04',
+    value: 123.12,
+}];
+return (
+    <LineChart data={lineChartData} stroke="steelblue" strokeWidth={1.5} />
+);
+```
 ### generateTooltip 
 A helper function that helps to add a tooltip without any style to a d3 generated visualization.
 

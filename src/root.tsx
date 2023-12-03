@@ -8,6 +8,7 @@ import D3Container from "./components/d3-container/d3-container";
 import { createGraph } from "./utils/utils";
 
 import styles from './styles.module.css';
+import LineChart from "./components/line-chart/line-chart";
 
 export default () => {
     const data = [
@@ -215,6 +216,28 @@ export default () => {
             }
         ]
     };
+    const lineChartData = [{
+        date: '2013-04-28',
+        value: 135.98,
+    }, {
+        date: '2013-04-29',
+        value: 147.49,
+    }, {
+        date: '2013-04-30',
+        value: 146.93,
+    }, {
+        date: '2013-05-01',
+        value: 139.89,
+    }, {
+        date: '2013-05-02',
+        value: 143.89,
+    }, {
+        date: '2013-05-03',
+        value: 167.12,
+    }, {
+        date: '2013-05-04',
+        value: 123.12,
+    }];
 
     const handleCreation = $(createGraph);
     return (
@@ -232,6 +255,7 @@ export default () => {
                 <Histogram data={histogramData} column="price" xAxisDomain={[0, 150]} fill="#69b3a2" thresholds={70} />
                 <PieChart data={pieData} withLabels withTooltip stroke="black" opacity={0.7} />
                 <Network data={networkData} linkStroke="#aaa" nodeFill="#69b3a2" nodeR={20} />
+                <LineChart data={lineChartData} stroke="steelblue" strokeWidth={1.5} />
             </section>
           </body>
         </>

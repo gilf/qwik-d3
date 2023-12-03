@@ -2,8 +2,8 @@ import {component$, type QRL, useSignal, useStylesScoped$, useVisibleTask$} from
 import styles from "./d3-container.css?inline";
 
 export type D3ContainerProps = {
-    data: any[] | Record<string, any> | object;
-    create: QRL<(elm: HTMLDivElement | undefined, data: any[] | undefined | object, options: Record<string, any>) => { unmount: () => void; node?: undefined; } | { unmount: () => void; node: SVGGElement | null; }>;
+    data: any[] | Record<string, any> | any;
+    create: QRL<(elm: HTMLDivElement | undefined, data: any[] | undefined | any, options: Record<string, any>) => { unmount: () => void; node?: undefined; } | { unmount: () => void; node: SVGGElement | null; }>;
     options: Record<string, any>;
 }
 
