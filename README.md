@@ -1,6 +1,6 @@
 # qwik-d3 ⚡️
 
-![qwik-d3](/images/qwik-d3-small.jpg)
+<img src="https://github.com/gilf/qwik-d3/blob/main/images/qwik-d3-small.jpg" alt="qwik-d3" width="124px" height="124px">
 A small library that exposes a d3 container. You can use the container in order to incorporate d3 generated visualization inside your qwik project.
 
 ---
