@@ -1,6 +1,6 @@
 # qwik-d3 ⚡️
 
-![qwik-d3](/images/qwik-d3.jpg)
+![qwik-d3](/images/qwik-d3-small.jpg)
 A small library that exposes a d3 container. You can use the container in order to incorporate d3 generated visualization inside your qwik project.
 
 ---
