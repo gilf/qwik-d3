@@ -16,7 +16,7 @@ Make sure that you also install d3 library because it's a peer dependency.
 ## Usage
 
 The library exposes a component named D3Container.
-The component expects two props:
+The component expects three props:
 - data - the data that should be used inside the graph. 
 - create - a QRL function that will be responsible to create the d3 visualization inside the container.
 - options - a Record<string, string> that is used to pass configurations to the create function
